@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>vue2</title>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="row">
+
+        <h1>Camp Serie A</h1>
+        <br><br>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Time</th>
+            <th>Pontos</th>
+            <th>GP</th>
+            <th>GC</th>
+            <th>SG</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="item in times" >
+            <td>
+              <img :src="item.escudo" style="height: 25px; width: 25px;border: 1px">
+              <strong>{{item.nome}}</strong>
+            </td>
+            <td>{{item.pontos}}</td>
+            <td>{{item.gp}}</td>
+            <td>{{item.gc}}</td>
+            <td>saldo</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row">
+        <form class="form-inline">
+          <div class="form-group">
+            <input class="form-control">
+            <label class="control-label">
+              {{novoJogo.casa.time.nome}}
+              <img :src="novoJogo.casa.time.escudo" style="height: 25px; width: 25px;border: 1px">
+            </label>
+          </div>
+          <span>X</span>
+          <div class="form-group">
+            <label class="control-label">
+              <img :src="novoJogo.fora.time.escudo" style="height: 25px; width: 25px;border: 1px">
+              {{novoJogo.fora.time.nome}}
+            </label>
+            <input class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary">Fim de jogo</button>
+        </form>
+      </div>
+      <script src="/dist/build.js"></script>
+    </div>
+  </body>
+</html>
